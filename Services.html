@@ -6,6 +6,7 @@
     <title>Services</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+<body style="background-color: peru;"></body>
 <body>
 
     <!-- Header & Complete Navigation Menu -->
@@ -15,50 +16,41 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="About.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="Services.html">Services</a></li>
                 <li><a href="Contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main Content detailing pricing list -->
-    <main>
+    <!-- Main Content detailing pricing list structured with Flex/Grid layouts -->
+<main>
+    <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
         <!-- Women's Service Category Section -->
         <section>
             <h2>Women</h2>
             <ul>
-                <li>Washing hair - R50 </li>
-                <li>Braids - R300</li>
-                <li>Butterfly locks - R300</li>
-                <li>Cornrows - R200</li>
-                <li>Dreadlocks - R120</li>
+                <li><span>Washing hair</span> <span>R50</span></li>
+                <li><span>Braids</span> <span>R300</span></li>
+                <li><span>Butterfly locks</span> <span>R300</span></li>
+                <li><span>Cornrows</span> <span>R200</span></li>
+                <li><span>Dreadlocks</span> <span>R120</span></li>
             </ul>
-        </section> <!-- Fixed: Explicitly closed women's section -->
+        </section>
 
         <!-- Men's Service Category Section -->
         <section>
             <h2>Men</h2>
             <ul>
-                <li>Washing hair - R40 </li>
-                <li>Cut - R60</li>
-                <li>Fade - R50</li>
-                <li>Chiskop - R49</li>
-                <li>Taper fade - R70</li>
-                <li>Cut and dye - R100</li>
-                <li>Bleach - R30</li>
-                <li>Trim - R10</li>
+                <li><span>Washing hair</span> <span>R40</span></li>
+                <li><span>Cut</span> <span>R60</span></li>
+                <li><span>Fade</span> <span>R50</span></li>
+                <li><span>Chiskop</span> <span>R49</span></li>
+                <li><span>Taper fade</span> <span>R70</span></li>
+                <li><span>Cut and dye</span> <span>R100</span></li>
+                <li><span>Bleach</span> <span>R30</span></li>
+                <li><span>Trim</span> <span>R10</span></li>
             </ul>
         </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2026 Bradley Saloon Services</p>
-    </footer>
-
-</body>
-</html>
-
-
-          
- 
+    </div>
+</main>
