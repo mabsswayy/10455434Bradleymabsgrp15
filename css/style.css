@@ -1,31 +1,32 @@
 /* ==========================================================================
-   1. CSS RESET & VARIABLES (Cross-Browser Consistency)
+   1. GLOBAL VARIABLES & RESET SETUP
    ========================================================================== */
 :root {
-    /* Color Palette */
-    --primary-dark: #1a1a1a;
-    --accent-gold: #c5a880;
-    --accent-gold-hover: #b3946b;
-    --bg-light: #fdfbf7;
-    --text-dark: #2d2d2d;
-    --text-muted: #666666;
-    --border-color: #e5e0d8;
+    /* Color setup for my salon theme assignment */
+    --primary-dark: #1a1a1a;        /* Charcoal color for headers and footer */
+    --accent-gold: #c5a880;         /* Main gold theme color for accents and links */
+    --accent-gold-hover: #b3946b;   /* Darker gold shade for when elements get clicked */
+    --bg-light: #fdfbf7;            /* Cream background color so the pages look clean */
+    --text-dark: #2d2d2d;           /* Readable gray color for normal text */
+    --text-muted: #666666;          /* Secondary gray color for minor headings */
+    --border-color: #e5e0d8;        /* Soft border border lines for layout dividers */
     
-    /* Typography Scale */
+    /* Font styling configurations */
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --base-font-size: 16px;
-    --line-height-base: 1.6;
+    --base-font-size: 16px;         /* Base text standard to anchor rem sizing scales */
+    --line-height-base: 1.6;        /* Spacing rules between paragraph lines */
 }
 
+/* Standard reset framework to clear built-in margins across multiple browsers */
 *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;         
+    margin: 0;                      
+    padding: 0;                     
 }
 
 html {
     font-size: var(--base-font-size);
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;        /* Makes link page jumps scroll down smoothly */
 }
 
 body {
@@ -33,43 +34,22 @@ body {
     line-height: var(--line-height-base);
     color: var(--text-dark);
     background-color: var(--bg-light);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display: flex;                  
+    flex-direction: column;         /* Arranges main layout vertically down the page */
+    min-height: 100vh;              /* Forces pages to stretch down the whole viewport height */
 }
 
 /* ==========================================================================
-   2. TYPOGRAPHY & VISUAL ANCHORS
-   ========================================================================== */
-h1, h2, h3 {
-    color: var(--primary-dark);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-h1 { font-size: 2.25rem; text-transform: uppercase; }
-h2 { font-size: 1.75rem; border-bottom: 2px solid var(--accent-gold); padding-bottom: 0.5rem; }
-h3 { font-size: 1.35rem; }
-
-p {
-    margin-bottom: 1.25rem;
-    font-size: 1rem;
-    color: var(--text-dark);
-}
-
-/* ==========================================================================
-   3. GLOBAL LAYOUT COMPONENTS (Desktop First Structure)
+   3. GLOBAL LAYOUT COMPONENTS (Desktop Layout Architecture)
    ========================================================================== */
 header {
     background-color: var(--primary-dark);
     color: #ffffff;
     padding: 2rem 5%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-direction: column;         /* Arranges logo picture above navigation text links */
+    align-items: center;            /* Centers logo graphics layout perfectly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adds clean minor drop shadow line under menu */
 }
 
 header h1 {
@@ -79,14 +59,12 @@ header h1 {
     text-align: center;
 }
 
-/* Responsive Logo Implementation */
 header img {
-    max-width: 100%;
+    max-width: 100%;                /* Makes sure the logo banner photo drops scales automatically */
     height: auto;
     display: block;
 }
 
-/* Interactive Navigation Menu */
 nav {
     width: 100%;
     margin-top: 1.5rem;
@@ -94,41 +72,27 @@ nav {
 
 nav ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
+    display: flex;                  /* Arranges navigation lists horizontally in a layout line */
+    justify-content: center;        /* Centers alignment layout arrays */
+    gap: 2.5rem;                    /* Sets space gaps between site view link choices */
 }
 
 nav ul li a {
     color: #ffffff;
-    text-decoration: none;
+    text-decoration: none;          /* Gets rid of default browser text underline markers */
     font-weight: 600;
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.5rem 0;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent; /* Hidden placeholder border line for visual hover tracking */
 }
 
-/* Interactive Pseudo-classes */
-nav ul li a:hover,
-nav ul li a:focus {
-    color: var(--accent-gold);
-    border-bottom: 2px solid var(--accent-gold);
-    outline: none;
-}
-
-nav ul li a:active {
-    color: var(--accent-gold-hover);
-}
-
-/* Main Container Architecture */
 main {
-    flex: 1;
-    max-width: 1200px;
+    flex: 1;                        /* Allows the body container content area to fill screen */
+    max-width: 1200px;              /* Caps screen width size so layout looks clean on monitors */
     width: 90%;
-    margin: 3rem auto;
+    margin: 3rem auto;              /* Centers content blocks horizontally */
     padding: 0 1rem;
 }
 
@@ -137,128 +101,48 @@ section {
     padding: 2.5rem;
     margin-bottom: 2.5rem;
     border-radius: 6px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02); /* Very soft accent drop shadow styling */
     border: 1px solid var(--border-color);
 }
 
-/* Multi-Column Services Structure via CSS Grid */
-main grid-container {
+main .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Sets up side by side desktop cards */
     gap: 2rem;
 }
 
-/* Price List Styling Layouts */
 ul {
-    list-style-type: none;
+    list-style-type: none;          /* Clears default dots out of styling layout lists */
 }
 
 main section ul li {
     padding: 0.85rem 0;
-    border-bottom: 1px dashed var(--border-color);
+    border-bottom: 1px dashed var(--border-color); /* Dashed price baseline divider style */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Pushes text left and service prices right */
     font-weight: 500;
 }
 
-/* Gallery Display Component */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Image rows and columns array */
     gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.gallery picture, .gallery img {
+.gallery img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: cover;              /* Clips salon images perfectly so they don't squish */
     border-radius: 4px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
 }
 
-.gallery img:hover {
-    transform: scale(1.03);
-}
-
-/* Footer Section */
 footer {
     background-color: var(--primary-dark);
     color: #888888;
     text-align: center;
     padding: 2rem 1rem;
     font-size: 0.9rem;
-    border-top: 3px solid var(--accent-gold);
-}
-
-/* ==========================================================================
-   4. RESPONSIVE MEDIA QUERIES (Mobile and Tablet Breakpoints)
-   ========================================================================== */
-
-/* Tablet Viewport (Max-width: 768px) */
-@media screen and (max-width: 768px) {
-    html {
-        font-size: 15px; /* Scaled down root text baseline */
-    }
-    
-    header {
-        padding: 1.5rem 3%;
-    }
-    
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    
-    nav ul {
-        gap: 1.5rem;
-    }
-    
-    main {
-        margin: 1.5rem auto;
-        width: 95%;
-    }
-    
-    section {
-        padding: 1.75rem;
-    }
-}
-
-/* Mobile Viewport (Max-width: 480px) */
-@media screen and (max-width: 480px) {
-    html {
-        font-size: 14px;
-    }
-
-    header h1 {
-        font-size: 1.65rem;
-    }
-
-    /* Convert Navigation List layout to full stacked block rows */
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
-    }
-
-    nav ul li {
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 0.65rem;
-        background-color: rgba(255, 255, 255, 0.03);
-        border-radius: 4px;
-    }
-    
-    /* Layout reflow from Multi-column grids to uniform Single-Column layout */
-    .gallery, main grid-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .gallery img {
-        height: 200px;
-    }
+    border-top: 3px solid var(--accent-gold); /* Top golden horizontal border stripe accent */
 }
