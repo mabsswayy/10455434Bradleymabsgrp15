@@ -146,3 +146,31 @@ footer {
     font-size: 0.9rem;
     border-top: 3px solid var(--accent-gold); /* Top golden horizontal border stripe accent */
 }
+/* ==========================================================================
+   4. USER INTERACTION HOVER EFFECT CONFIGURATIONS
+   ========================================================================== */
+nav ul li a {
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Blends colors smoothly when selected */
+}
+
+/* Activates bold gold highlight underline highlights when pointing at pages */
+nav ul li a:hover,
+nav ul li a:focus {
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+    outline: none;
+}
+
+/* Darker button press color response system */
+nav ul li a:active {
+    color: var(--accent-gold-hover);
+}
+
+.gallery img {
+    transition: transform 0.3s ease; /* Timing matrix track for scale actions */
+}
+
+/* Interactive picture scaling animation block */
+.gallery img:hover {
+    transform: scale(1.03);          /* Slightly pop-zooms photos by 3 percent on cursor hover */
+}
