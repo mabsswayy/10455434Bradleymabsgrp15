@@ -174,3 +174,29 @@ nav ul li a:active {
 .gallery img:hover {
     transform: scale(1.03);          /* Slightly pop-zooms photos by 3 percent on cursor hover */
 }
+/* ==========================================================================
+   5. RESPONSIVE MEDIA QUERIES (Mobile and Tablet Adaptive Formatting)
+   ========================================================================== */
+
+/* Tablet Display Adaptive Viewports (Max-width: 768px) */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 15px;            /* Scales down global font targets to optimize tablet reading margins */
+    }
+    header {
+        padding: 1.5rem 3%;
+    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    nav ul {
+        gap: 1.5rem;                /* Narrows down links margins so page components won't snap wrap */
+    }
+    main {
+        margin: 1.5rem auto;
+        width: 95%;
+    }
+    section {
+        padding: 1.75rem;
+    }
+}
+
