@@ -46,10 +46,10 @@
                 <label for="salonService" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Select Grooming Treatment</label>
                 <select id="salonService" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; background: #fff; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
                     <option value="">-- Choose from Menu --</option>
-                    <option value="haircut" data-price="30">Standard Scissor Haircut (£30)</option>
-                    <option value="fade" data-price="35">Premium Skin Fade & Trim (£35)</option>
-                    <option value="shave" data-price="20">Hot Towel Precision Shave (£20)</option>
-                    <option value="combo" data-price="50">The Full Works: Cut & Beard Styling (£50)</option>
+                    <option value="haircut" data-price="30">Standard Scissor Haircut (R30)</option>
+                    <option value="fade" data-price="35">Premium Skin Fade & Trim (R35)</option>
+                    <option value="shave" data-price="20">Hot Towel Precision Shave (R20)</option>
+                    <option value="combo" data-price="50">The Full Works: Cut & Beard Styling (R50)</option>
                 </select>
                 <span id="serviceError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please select a service.</span>
             </div>
@@ -75,24 +75,21 @@
 html
 <script>
 document.getElementById('bookingForm').addEventListener('submit', function(event) {
-    // Prevent the default browser page reload behavior
     event.preventDefault();
 
-    // Reset error messages and visibility settings
     let isValid = true;
-    document.getElementById('formResponse').style.display = 'none';
+    const responseBox = document.getElementById('formResponse');
+    responseBox.style.display = 'none';
     
-    const fields = ['name', 'email', 'service', 'date'];
-    fields.forEach(field => {
+    ['name', 'email', 'service', 'date'].forEach(field => {
         document.getElementById(field + 'Error').style.display = 'none';
     });
 
-    // Grab the inputs to inspect them
     const name = document.getElementById('clientName').value.trim();
     const email = document.getElementById('clientEmail').value.trim();
     const serviceSelect = document.getElementById('salonService');
     const bookingDate = document.getElementById('bookingDate').value;
-     // 1. Basic Form Checks
+
     if (!name) {
         document.getElementById('nameError').style.display = 'block';
         isValid = false;
@@ -112,23 +109,22 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
     if (!bookingDate) {
         document.getElementById('dateError').style.display = 'block';
         isValid = false;
-    }// 2. Process Output if the checks clear
+    }
+
     if (isValid) {
-        // Grab the price value from the custom data attribute on the selected option element
         const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
         const cost = selectedOption.getAttribute('data-price');
-        const serviceName = selectedOption.text;
+        const serviceName = selectedOption.text.split(' (')[0]; 
 
-        const responseBox = document.getElementById('formResponse');
-        responseBox.style.backgroundColor = '#e6f4ea';
+        // Style the success response box to look premium
+        responseBox.style.backgroundColor = '#f4fbf7';
         responseBox.style.color = '#137333';
-        responseBox.style.border = '1px solid #dadce0';
+        responseBox.style.border = '1px solid #c2e7d9';
+        responseBox.style.borderLeft = '5px solid #137333';
         
-        // Output standard human-styled summary message text
-        responseBox.innerHTML = `<strong>Success!</strong> Hi ${name}, your enquiry for a ${serviceName} has been recorded for ${bookingDate}. Your estimated total cost is <strong>£${cost}</strong>. We will contact you at ${email} shortly to lock in your exact time slot.`;
+        responseBox.innerHTML = `✨ <strong>Inquiry Logged Successfully!</strong> ✨<br><br>Hello ${name}, your estimate for <strong>${serviceName}</strong> on <strong>${bookingDate}</strong> comes out to a total of <strong>£${cost}</strong>.<br>Our team will message you at <strong>${email}</strong> shortly to lock down your chair time!`;
         responseBox.style.display = 'block';
 
-        // Clear the fields out cleanly
         document.getElementById('bookingForm').reset();
     }
 });
