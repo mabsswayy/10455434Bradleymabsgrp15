@@ -4,5 +4,13 @@
     <loc>https://github.io</loc>
     <lastmod>2026-10-29</lastmod>
     <priority>1.00</priority>
-  </url> 
-  
+  </url>  <url>
+    <loc>https://github.io</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.80</priority>
+  </url>  <url>
+    <loc>https://github.io</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.80</priority>
+  </url>
+ 
