@@ -39,3 +39,15 @@
         <input type="email" id="clientEmail" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
         <span id="emailError" style="color: red; font-size: 13px; display: none;">Please enter a valid email address.</span>
     </div>
+      <!-- Service Selection Dropdown -->
+    <div>
+        <label for="salonService" style="display: block; font-weight: bold; margin-bottom: 5px;">Choose a Service:</label>
+        <select id="salonService" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="">-- Select a Service --</option>
+            <option value="haircut" data-price="30">Standard Haircut (£30)</option>
+            <option value="fade" data-price="35">Skin Fade & Trim (£35)</option>
+            <option value="shave" data-price="20">Hot Towel Shave (£20)</option>
+            <option value="combo" data-price="50">Full Cut & Beard Styling (£50)</option>
+        </select>
+        <span id="serviceError" style="color: red; font-size: 13px; display: none;">Please select a service from the list.</span>
+    </div>
