@@ -3,6 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Us | Bradley's Saloon Location</title>
-    <meta name="description" content="Have a question or want to stop by? Grab our shop hours, map location, or leave our team a quick note right here.">
-    <link rel="stylesheet" href="style.css">
+    <title>Contact Bradley's Saloon and Location &amp; Opening Hours</title>
+    <meta name="description" content="Get in touch with Bradley's Saloon Services. Find our physical salon location details, opening hours, or drop us a message.">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Leaflet Map CSS Library Framework -->
+    <link rel="stylesheet" href="https://unpkg.com" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Extra Layout Styles to keep it looking clean and modern -->
+    <style>
+        .contact-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+        #map {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 2px solid #fff;
+        }
+        .message-form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        @media (min-width: 768px) {
+            .contact-layout {
+                flex-direction: row;
+            }
+            .contact-layout > div {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: rosybrown; font-family: sans-serif; margin: 0; padding: 0;">
+
+    <!-- Header & Complete Navigation Menu -->
+    <header style="background-color: #1a1a1a; padding: 20px; text-align: center; color: white;">
+        <h1 style="margin-bottom: 15px;">Contact Us</h1>
+        <nav>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; justify-content: center;">
+                <li><a href="index.html" style="color: white; text-decoration: none; font-weight: bold;">Home</a></li>
+                <li><a href="About.html" style="color: white; text-decoration: none; font-weight: bold;">About Us</a></li>
+                <li><a href="enquiry.html" style="color: white; text-decoration: none; font-weight: bold;">Booking Enquiry</a></li>
+                <li><a href="Services.html" style="color: white; text-decoration: none; font-weight: bold;">Services</a></li>
+                <li><a href="Contact.html" style="color: #d4af37; text-decoration: none; font-weight: bold;">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Layout Section Wrap -->
+    <main class="contact-layout">
+        
+        <!-- Left Side: Address Details and Leaflet Interactive Map -->
+        <div>
+            <section style="background: rgba(255, 255, 255, 0.9); padding: 25px; border-radius: 8px; margin-bottom: 20px;">
+                <h2 style="margin-top: 0;">Call and book now</h2>
+                <p><strong>Email:</strong> bradleymabs@gmail.com</p>
+                <p><strong>Phone:</strong> +27 83 656 7890</p>
+                <p><strong>Whatsapp:</strong> +27 86 754 7644</p>
+                <p><strong>Address:</strong> 123 Main Street, Pretoria</p>
+            </section>
+
+            <!-- Map Target Container Element -->
+            <div id="map"></div>
+        </div>
+
+        <!-- Right Side: General Enquiry Validation Form (Requirement 4) -->
+        <div>
+            <form id="contactForm" novalidate class="message-form">
+                <h3 style="margin-top: 0; margin-bottom: 20px; text-transform: uppercase; font-size: 16px;">Send us a message</h3>
+                
+                <div class="form-group">
+                    <label for="contactName">Full Name</label>
+                    <input type="text" id="contactName" required class="form-input">
+                    <span id="nameError" style="color: red; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please enter your name.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactEmail">Email Address</label>
+                    <input type="email" id="contactEmail" required class="form-input">
+                    <span id="emailError" style="color: red; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please enter a valid email.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="messageType">Inquiry Type</label>
+                    <select id="messageType" required class="form-input" style="height: 40px;">
+                        <option value="">-- Choose Option --</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="feedback">Feedback / Review</option>
+                    </select>
+                    <span id="typeError" style="color: red; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please choose an inquiry type.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMessage">Your Message</label>
+                    <textarea id="contactMessage" required rows="4" class="form-input"></textarea>
+                    <span id="messageError" style="color: red; font-size: 13px; display: none; margin-top: 5px;">⚠️ Message block cannot be blank.</span>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <div id="contactResponse" style="margin-top: 20px; padding: 15px; border-radius: 6px; display: none; font-size: 14px; text-align: center; font-weight: bold;"></div>
+        </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer style="background-color: #1a1a1a; color: white; text-align: center; padding: 15px; margin-top: 40px;">
+        <p>&copy; 2026 Bradley Saloon Services</p>
+    </footer>
+
+    <!-- Leaflet Engine Source Scripts Link Injection -->
+    <script src="https://unpkg.com" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Client Interactive Mechanics Script Core Logic -->
+    <script>
+        // Initialize Live Map Centered on Pretoria (-25.747, 28.229)
+        const map = L.map('map').setView([-25.747, 28.229], 13);
+
+        // Load open street layout surface map tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Pin marker overlay showing where salon sits
+        L.marker([-25.747, 28.229]).addTo(map)
+            .bindPopup('<strong>Bradley\'s Saloon</strong><br />123 Main Street, Pretoria')
+            .openPopup();
+
+        // General Form Submission Client-Side Processing Logic
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let isValid = true;
+            const resBox = document.getElementById('contactResponse');
+            resBox.style.display = 'none';
+
+            ['name', 'email', 'type', 'message'].forEach(f => {
+                document.getElementById(f + 'Error').style.display = 'none';
+            });
+
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const type = document.getElementById('messageType').value;
+            const message = document.getElementById('contactMessage').value.trim();
+
+            if (!name) {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            if (!type) {
+                document.getElementById('typeError').style.display = 'block';
+                isValid = false;
+            }
+            if (!message) {
+                document.getElementById('messageError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                resBox.style.backgroundColor = '#d4edda';
+                resBox.style.color = '#155724';
+                resBox.style.border = '1px solid #c3e6cb';
+                resBox.innerHTML = `Success! Message sent successfully. Thank you, ${name}.`;
+                resBox.style.display = 'block';
+                document.getElementById('contactForm').reset();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
