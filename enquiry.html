@@ -80,3 +80,9 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
     fields.forEach(field => {
         document.getElementById(field + 'Error').style.display = 'none';
     });
+
+    // Grab the inputs to inspect them
+    const name = document.getElementById('clientName').value.trim();
+    const email = document.getElementById('clientEmail').value.trim();
+    const serviceSelect = document.getElementById('salonService');
+    const bookingDate = document.getElementById('bookingDate').value;
