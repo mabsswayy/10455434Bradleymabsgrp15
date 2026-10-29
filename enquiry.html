@@ -66,3 +66,17 @@
 
 <!-- This container displays the calculation response dynamically -->
 <div id="formResponse" style="margin-top: 20px; padding: 15px; border-radius: 5px; display: none;"></div>
+html
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(event) {
+    // Prevent the default browser page reload behavior
+    event.preventDefault();
+
+    // Reset error messages and visibility settings
+    let isValid = true;
+    document.getElementById('formResponse').style.display = 'none';
+    
+    const fields = ['name', 'email', 'service', 'date'];
+    fields.forEach(field => {
+        document.getElementById(field + 'Error').style.display = 'none';
+    });
