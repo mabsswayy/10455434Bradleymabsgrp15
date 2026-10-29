@@ -19,53 +19,59 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-    </header>  <main style="padding: 40px; max-width: 600px; margin: 0 auto;">
-        <h2>Service Booking & Cost Estimator</h2>
-        <p>Select the grooming options you want below to estimate your total cost and check availability.</p>
-        
-        <!-- We will put the actual interactive form elements right here next! -->
-       <form id="bookingForm" novalidate style="display: flex; flex-direction: column; gap: 15px; background: #f9f9f9; padding: 25px; border-radius: 8px; border: 1px solid #ddd;">
+    </header>  <!-- Main Content Area for the Form -->
+<main style="padding: 50px 20px; max-width: 650px; margin: 0 auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h2 style="text-align: center; color: #1a1a1a; font-size: 28px; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase;">Service Booking & Cost Estimator</h2>
+    <p style="text-align: center; color: #555; margin-bottom: 30px; font-size: 15px;">Select your grooming treatments below to instantly calculate your total package cost.</p>
     
-    <!-- Client Name Input -->
-    <div>
-        <label for="clientName" style="display: block; font-weight: bold; margin-bottom: 5px;">Your Name:</label>
-        <input type="text" id="clientName" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
-        <span id="nameError" style="color: red; font-size: 13px; display: none;">Please tell us your name.</span>
+    <div id="enquiry-form-container">
+        <form id="bookingForm" novalidate style="display: flex; flex-direction: column; gap: 20px; background: #ffffff; padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid #1a1a1a;">
+            
+            <!-- Client Name Input -->
+            <div>
+                <label for="clientName" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Your Name</label>
+                <input type="text" id="clientName" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
+                <span id="nameError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px; font-weight: 5px;">⚠️ Please tell us your name.</span>
+            </div>
+
+            <!-- Client Email Input -->
+            <div>
+                <label for="clientEmail" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Email Address</label>
+                <input type="email" id="clientEmail" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
+                <span id="emailError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please enter a valid email address.</span>
+            </div>
+
+            <!-- Service Selection Dropdown -->
+            <div>
+                <label for="salonService" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Select Grooming Treatment</label>
+                <select id="salonService" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; background: #fff; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
+                    <option value="">-- Choose from Menu --</option>
+                    <option value="haircut" data-price="30">Standard Scissor Haircut (£30)</option>
+                    <option value="fade" data-price="35">Premium Skin Fade & Trim (£35)</option>
+                    <option value="shave" data-price="20">Hot Towel Precision Shave (£20)</option>
+                    <option value="combo" data-price="50">The Full Works: Cut & Beard Styling (£50)</option>
+                </select>
+                <span id="serviceError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please select a service.</span>
+            </div>
+
+            <!-- Date Input -->
+            <div>
+                <label for="bookingDate" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Preferred Date</label>
+                <input type="date" id="bookingDate" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
+                <span id="dateError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please pick an available date.</span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" style="background: #1a1a1a; color: #ffffff; padding: 14px; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: background 0.2s;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#1a1a1a'">
+                Calculate Package Total
+            </button>
+        </form>
     </div>
 
-    <!-- Client Email Input -->
-    <div>
-        <label for="clientEmail" style="display: block; font-weight: bold; margin-bottom: 5px;">Email Address:</label>
-        <input type="email" id="clientEmail" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
-        <span id="emailError" style="color: red; font-size: 13px; display: none;">Please enter a valid email address.</span>
-    </div>
-      <!-- Service Selection Dropdown -->
-    <div>
-        <label for="salonService" style="display: block; font-weight: bold; margin-bottom: 5px;">Choose a Service:</label>
-        <select id="salonService" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
-            <option value="">-- Select a Service --</option>
-            <option value="haircut" data-price="30">Standard Haircut (£30)</option>
-            <option value="fade" data-price="35">Skin Fade & Trim (£35)</option>
-            <option value="shave" data-price="20">Hot Towel Shave (£20)</option>
-            <option value="combo" data-price="50">Full Cut & Beard Styling (£50)</option>
-        </select>
-        <span id="serviceError" style="color: red; font-size: 13px; display: none;">Please select a service from the list.</span>
-    </div>
-        <!-- Date Input -->
-    <div>
-        <label for="bookingDate" style="display: block; font-weight: bold; margin-bottom: 5px;">Preferred Date:</label>
-        <input type="date" id="bookingDate" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
-        <span id="dateError" style="color: red; font-size: 13px; display: none;">Please select a date for your visit.</span>
-    </div>
+    <!-- This container displays the calculation response dynamically -->
+    <div id="formResponse" style="margin-top: 25px; padding: 20px; border-radius: 8px; display: none; font-size: 15px; line-height: 1.5; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05);"></div>
+</main>
 
-    <!-- Submit Button -->
-    <button type="submit" style="background: #333; color: white; padding: 12px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 10px;">
-        Calculate Total & Submit
-    </button>
-</form>
-
-<!-- This container displays the calculation response dynamically -->
-<div id="formResponse" style="margin-top: 20px; padding: 15px; border-radius: 5px; display: none;"></div>
 html
 <script>
 document.getElementById('bookingForm').addEventListener('submit', function(event) {
