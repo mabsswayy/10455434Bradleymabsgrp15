@@ -106,4 +106,24 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
     if (!bookingDate) {
         document.getElementById('dateError').style.display = 'block';
         isValid = false;
+    }// 2. Process Output if the checks clear
+    if (isValid) {
+        // Grab the price value from the custom data attribute on the selected option element
+        const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+        const cost = selectedOption.getAttribute('data-price');
+        const serviceName = selectedOption.text;
+
+        const responseBox = document.getElementById('formResponse');
+        responseBox.style.backgroundColor = '#e6f4ea';
+        responseBox.style.color = '#137333';
+        responseBox.style.border = '1px solid #dadce0';
+        
+        // Output standard human-styled summary message text
+        responseBox.innerHTML = `<strong>Success!</strong> Hi ${name}, your enquiry for a ${serviceName} has been recorded for ${bookingDate}. Your estimated total cost is <strong>£${cost}</strong>. We will contact you at ${email} shortly to lock in your exact time slot.`;
+        responseBox.style.display = 'block';
+
+        // Clear the fields out cleanly
+        document.getElementById('bookingForm').reset();
     }
+});
+</script>
