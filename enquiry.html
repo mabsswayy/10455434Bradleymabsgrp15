@@ -5,127 +5,265 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book a Spot | Bradley's Saloon</title>
     <meta name="description" content="Plan your next haircut with our quick enquiry tool. Pick out what services you need and find out your final total before you visit.">
-    <!-- Make sure this href matches your exact CSS file path -->
     <link rel="stylesheet" href="style.css"> 
+    
+    <!-- Responsive Core Global Stylesheet Overrides -->
+    <style>
+        /* Base Reset Elements & Flexible Mechanics Layout */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Navigation List Flex Constraints Layout */
+        .nav-list {
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            flex-wrap: wrap;
+            gap: 15px; 
+            justify-content: center;
+        }
+        .nav-list a {
+            color: #fff; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            transition: color 0.2s;
+        }
+
+        /* Form Wrapper Card Dynamic Scaling Block */
+        .main-container {
+            padding: 40px 15px; 
+            width: 100%;
+            max-width: 650px; 
+            margin: 0 auto;
+        }
+        .booking-card {
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+            background: #ffffff; 
+            padding: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            border-top: 4px solid #1a1a1a;
+            width: 100%;
+        }
+
+        /* Fluid Inputs & Typography Fields Configuration */
+        .form-group label {
+            display: block; 
+            font-weight: bold; 
+            margin-bottom: 8px; 
+            color: #222; 
+            text-transform: uppercase; 
+            font-size: 11px; 
+            letter-spacing: 0.5px;
+        }
+        .form-input {
+            width: 100%; 
+            padding: 12px; 
+            border: 2px solid #e0e0e0; 
+            border-radius: 6px; 
+            font-size: 15px; 
+            outline: none; 
+            background-color: #ffffff;
+            transition: border-color 0.3s, padding 0.3s;
+        }
+        .form-input:focus {
+            border-color: #d4af37;
+        }
+        
+        /* Interactive Submit Action Button Classes */
+        .submit-btn {
+            background: #1a1a1a; 
+            color: #ffffff; 
+            padding: 14px; 
+            border: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            font-size: 15px; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-top: 10px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        /* 📱 Tablet Adjustments & Desktop Breakpoint Scaling Queries */
+        @media (min-width: 768px) {
+            .nav-list { gap: 25px; }
+            .nav-list a { font-size: 14px; }
+            .main-container { padding: 60px 20px; }
+            .booking-card { padding: 40px; }
+            .submit-btn { font-size: 16px; padding: 16px; }
+        }
+
+        /* 🔄 Landscape Rotation Optimization (Detects Mobile Sideways View) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main-container { padding: 20px 10px; }
+            .booking-card { 
+                padding: 20px; 
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            /* Span headings, text alerts, and buttons across full layout rows cleanly */
+            .full-row { grid-column: span 2; }
+            .submit-btn { font-size: 14px; padding: 10px; }
+            .form-input { padding: 8px 12px; font-size: 14px; }
+        }
+    </style>
 </head>
- <header>
-        <div class="logo">BRADLEYS SALOON</div>
-        <nav>
-            <ul>
+<body>
+
+    <!-- Authentic Brand Header Area Template Structure Match -->
+    <header style="background-color: #1a1a1a; padding: 30px 15px; text-align: center; border-bottom: 2px solid #d4af37;">
+        <div style="margin-bottom: 20px;">
+            <h1 style="color: #d4af37; font-family: 'Georgia', serif; font-style: italic; font-size: 42px; margin: 0; font-weight: normal; letter-spacing: 1px;">Bradleys</h1>
+            <div style="color: #fff; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; margin-top: -5px;">Unisex Salon</div>
+        </div>
+        
+        <h2 style="color: #f5ebe6; font-size: 20px; margin: 15px 0 25px 0; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Welcome to BRADLEYS SALOON SERVICES</h2>
+        
+        <!-- Navigation Container Section Layout -->
+        <nav style="display: block;">
+            <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
+                <li><a href="enquiry.html" style="color: #d4af37;">Booking Enquiry</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="enquiry.html" class="active">Booking Enquiry</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-    </header>  <!-- Main Content Area for the Form -->
-<main style="padding: 50px 20px; max-width: 650px; margin: 0 auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-    <h2 style="text-align: center; color: #1a1a1a; font-size: 28px; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase;">Service Booking & Cost Estimator</h2>
-    <p style="text-align: center; color: #555; margin-bottom: 30px; font-size: 15px;">Select your grooming treatments below to instantly calculate your total package cost.</p>
-    
-    <div id="enquiry-form-container">
-        <form id="bookingForm" novalidate style="display: flex; flex-direction: column; gap: 20px; background: #ffffff; padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid #1a1a1a;">
-            
-            <!-- Client Name Input -->
-            <div>
-                <label for="clientName" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Your Name</label>
-                <input type="text" id="clientName" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
-                <span id="nameError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px; font-weight: 5px;">⚠️ Please tell us your name.</span>
-            </div>
+    </header>
 
-            <!-- Client Email Input -->
-            <div>
-                <label for="clientEmail" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Email Address</label>
-                <input type="email" id="clientEmail" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
-                <span id="emailError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please enter a valid email address.</span>
-            </div>
-
-            <!-- Service Selection Dropdown -->
-            <div>
-                <label for="salonService" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Select Grooming Treatment</label>
-                <select id="salonService" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; background: #fff; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
-                    <option value="">-- Choose from Menu --</option>
-                    <option value="haircut" data-price="30">Standard Scissor Haircut (R30)</option>
-                    <option value="fade" data-price="35">Premium Skin Fade & Trim (R35)</option>
-                    <option value="shave" data-price="20">Hot Towel Precision Shave (R20)</option>
-                    <option value="combo" data-price="50">The Full Works: Cut & Beard Styling (R50)</option>
-                </select>
-                <span id="serviceError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please select a service.</span>
-            </div>
-
-            <!-- Date Input -->
-            <div>
-                <label for="bookingDate" style="display: block; font-weight: 600; margin-bottom: 8px; color: #222; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Preferred Date</label>
-                <input type="date" id="bookingDate" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 15px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1a1a1a'" onblur="this.style.borderColor='#e0e0e0'">
-                <span id="dateError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please pick an available date.</span>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" style="background: #1a1a1a; color: #ffffff; padding: 14px; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: background 0.2s;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#1a1a1a'">
-                Calculate Package Total
-            </button>
-        </form>
-    </div>
-
-    <!-- This container displays the calculation response dynamically -->
-    <div id="formResponse" style="margin-top: 25px; padding: 20px; border-radius: 8px; display: none; font-size: 15px; line-height: 1.5; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05);"></div>
-</main>
-
-html
-<script>
-document.getElementById('bookingForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    let isValid = true;
-    const responseBox = document.getElementById('formResponse');
-    responseBox.style.display = 'none';
-    
-    ['name', 'email', 'service', 'date'].forEach(field => {
-        document.getElementById(field + 'Error').style.display = 'none';
-    });
-
-    const name = document.getElementById('clientName').value.trim();
-    const email = document.getElementById('clientEmail').value.trim();
-    const serviceSelect = document.getElementById('salonService');
-    const bookingDate = document.getElementById('bookingDate').value;
-
-    if (!name) {
-        document.getElementById('nameError').style.display = 'block';
-        isValid = false;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRegex.test(email)) {
-        document.getElementById('emailError').style.display = 'block';
-        isValid = false;
-    }
-
-    if (!serviceSelect.value) {
-        document.getElementById('serviceError').style.display = 'block';
-        isValid = false;
-    }
-
-    if (!bookingDate) {
-        document.getElementById('dateError').style.display = 'block';
-        isValid = false;
-    }
-
-    if (isValid) {
-        const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
-        const cost = selectedOption.getAttribute('data-price');
-        const serviceName = selectedOption.text.split(' (')[0]; 
-
-        // Style the success response box to look premium
-        responseBox.style.backgroundColor = '#f4fbf7';
-        responseBox.style.color = '#137333';
-        responseBox.style.border = '1px solid #c2e7d9';
-        responseBox.style.borderLeft = '5px solid #137333';
+    <!-- Main Dynamic Interface Scaling Container Wrapper Frame -->
+    <main class="main-container">
+        <h2 style="text-align: center; color: #1a1a1a; font-size: 26px; letter-spacing: 0.5px; margin-bottom: 10px; font-weight: bold; text-transform: uppercase;">Service Booking &amp; Cost Estimator</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 35px; font-size: 14px; line-height: 1.4;">Select your grooming treatments below to instantly calculate your total package cost.</p>
         
-        responseBox.innerHTML = `✨ <strong>Inquiry Logged Successfully!</strong> ✨<br><br>Hello ${name}, your estimate for <strong>${serviceName}</strong> on <strong>${bookingDate}</strong> comes out to a total of <strong>£${cost}</strong>.<br>Our team will message you at <strong>${email}</strong> shortly to lock down your chair time!`;
-        responseBox.style.display = 'block';
+        <div id="enquiry-form-container">
+            <form id="bookingForm" novalidate class="booking-card">
+                
+                <!-- Client Name Input Group Area -->
+                <div class="form-group">
+                    <label for="clientName">Your Name</label>
+                    <input type="text" id="clientName" required class="form-input">
+                    <span id="nameError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please tell us your name.</span>
+                </div>
 
-        document.getElementById('bookingForm').reset();
-    }
-});
+                <!-- Client Email Input Group Area -->
+                <div class="form-group">
+                    <label for="clientEmail">Email Address</label>
+                    <input type="email" id="clientEmail" required class="form-input">
+                    <span id="emailError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please enter a valid email address.</span>
+                </div>
+
+                <!-- Service Selector Options Dropdown Menu Group Area -->
+                <div class="form-group">
+                    <label for="salonService">Select Grooming Treatment</label>
+                    <select id="salonService" required class="form-input" style="height: 45px;">
+                        <option value="">-- Choose from Menu --</option>
+                        <option value="haircut" data-price="30">Standard Scissor Haircut (£30)</option>
+                        <option value="fade" data-price="35">Premium Skin Fade &amp; Trim (£35)</option>
+                        <option value="shave" data-price="20">Hot Towel Precision Shave (£20)</option>
+                        <option value="combo" data-price="50">The Full Works: Cut &amp; Beard Styling (£50)</option>
+                    </select>
+                    <span id="serviceError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please select a service.</span>
+                </div>
+
+                <!-- Calendar Selection Field Object Input Group Area -->
+                <div class="form-group">
+                    <label for="bookingDate">Preferred Date</label>
+                    <input type="date" id="bookingDate" required class="form-input">
+                    <span id="dateError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please pick an available date.</span>
+                </div>
+
+                <!-- Action Button Element Container Row Framework -->
+                <div class="full-row">
+                    <button type="submit" class="submit-btn">
+                        Calculate Package Total
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- System Output Message Result Overlay Wrapper Area Box -->
+        <div id="formResponse" style="margin-top: 25px; padding: 20px; border-radius: 8px; display: none; font-size: 15px; line-height: 1.5; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05);"></div>
+    </main>
+
+    <!-- Footer Area Template View Sync Match Block -->
+    <footer style="background-color: #1a1a1a; color: #fff; text-align: center; padding: 20px; margin-top: 50px; font-size: 14px; border-top: 2px solid #d4af37;">
+        <p>&copy; 2026 Bradleys Saloon Services</p>
+    </footer>
+
+    <!-- Form Validation Processing Scripts Core Mechanics Hook -->
+    <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let isValid = true;
+        const responseBox = document.getElementById('formResponse');
+        responseBox.style.display = 'none';
+        
+        ['name', 'email', 'service', 'date'].forEach(field => {
+            document.getElementById(field + 'Error').style.display = 'none';
+        });
+
+        const name = document.getElementById('clientName').value.trim();
+const email = document.getElementById('clientEmail').value.trim();
+const serviceSelect = document.getElementById('salonService');
+const bookingDate = document.getElementById('bookingDate').value;
+if (!name) {
+document.getElementById('nameError').style.display = 'block';
+isValid = false;
+}
+const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+if (!email || !emailRegex.test(email)) {
+document.getElementById('emailError').style.display = 'block';
+isValid = false;
+}
+if (!serviceSelect.value) {
+document.getElementById('serviceError').style.display = 'block';
+isValid = false;
+}
+if (!bookingDate) {
+document.getElementById('dateError').style.display = 'block';
+isValid = false;
+}
+        if (isValid) {
+            const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+            const cost = selectedOption.getAttribute('data-price');
+            // Fixed the split string syntax here
+            const serviceName = selectedOption.text.split(' (')[0]; 
+            
+            responseBox.style.backgroundColor = '#f4fbf7';
+            responseBox.style.color = '#137333';
+            responseBox.style.border = '1px solid #c2e7d9';
+            responseBox.style.borderLeft = '5px solid #137333';
+            
+            // Changed <br> to self-closing <br /> to satisfy the editor's check
+            responseBox.innerHTML = `✨ <strong>Inquiry Logged Successfully!</strong> ✨<br /><br />Hello ${name}, your estimate for <strong>${serviceName}</strong> on <strong>${bookingDate}</strong> comes out to a total of <strong>£${cost}</strong>.<br />Our team will message you at <strong>${email}</strong> shortly to lock down your chair time!`;
+            responseBox.style.display = 'block';
+
+                        document.getElementById('bookingForm').reset();
+        }
+    }); // <-- Make sure line 267 has this exact brace and parenthesis matching
 </script>
