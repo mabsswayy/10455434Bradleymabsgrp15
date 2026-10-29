@@ -86,3 +86,24 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
     const email = document.getElementById('clientEmail').value.trim();
     const serviceSelect = document.getElementById('salonService');
     const bookingDate = document.getElementById('bookingDate').value;
+     // 1. Basic Form Checks
+    if (!name) {
+        document.getElementById('nameError').style.display = 'block';
+        isValid = false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+        document.getElementById('emailError').style.display = 'block';
+        isValid = false;
+    }
+
+    if (!serviceSelect.value) {
+        document.getElementById('serviceError').style.display = 'block';
+        isValid = false;
+    }
+
+    if (!bookingDate) {
+        document.getElementById('dateError').style.display = 'block';
+        isValid = false;
+    }
