@@ -51,3 +51,18 @@
         </select>
         <span id="serviceError" style="color: red; font-size: 13px; display: none;">Please select a service from the list.</span>
     </div>
+        <!-- Date Input -->
+    <div>
+        <label for="bookingDate" style="display: block; font-weight: bold; margin-bottom: 5px;">Preferred Date:</label>
+        <input type="date" id="bookingDate" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        <span id="dateError" style="color: red; font-size: 13px; display: none;">Please select a date for your visit.</span>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" style="background: #333; color: white; padding: 12px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 10px;">
+        Calculate Total & Submit
+    </button>
+</form>
+
+<!-- This container displays the calculation response dynamically -->
+<div id="formResponse" style="margin-top: 20px; padding: 15px; border-radius: 5px; display: none;"></div>
