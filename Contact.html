@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Bradley's Saloon and Location &amp; Opening Hours</title>
+    <title>Contact Bradley's Saloon | Location &amp; Hours</title>
     <meta name="description" content="Get in touch with Bradley's Saloon Services. Find our physical salon location details, opening hours, or drop us a message.">
+    <link rel="stylesheet" href="css/style.css">
     
-    <!-- Leaflet Map CSS Library Framework -->
-    <link rel="stylesheet" href="https://unpkg.com" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Leaflet Map CSS Library Framework Link -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Pure Internal CSS Stylesheet - Bypasses external file dependency crashes entirely -->
+    <!-- Document Layout Architecture Constraints Style Stylesheet -->
     <style>
         * {
             box-sizing: border-box;
@@ -58,8 +59,9 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             border: 2px solid #fff;
+            z-index: 10;
         }
-        .message-form-container {
+        .message-form-card {
             background: rgba(255, 255, 255, 0.9);
             padding: 25px;
             border-radius: 8px;
@@ -73,6 +75,8 @@
             font-weight: bold;
             margin-bottom: 5px;
             color: #1a1a1a;
+            text-transform: uppercase;
+            font-size: 13px;
         }
         .form-input {
             width: 100%;
@@ -80,6 +84,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 15px;
         }
         .submit-btn {
             background: #1a1a1a;
@@ -91,9 +96,8 @@
             width: 100%;
             font-weight: bold;
             text-transform: uppercase;
-        }
-        .submit-btn:hover {
-            background: #333;
+            font-size: 14px;
+            margin-top: 10px;
         }
         footer {
             background-color: #1a1a1a;
@@ -102,7 +106,6 @@
             padding: 15px;
             margin-top: 40px;
         }
-
         @media (min-width: 768px) {
             .contact-layout {
                 flex-direction: row;
@@ -124,15 +127,15 @@
                 <li><a href="About.html">About Us</a></li>
                 <li><a href="enquiry.html">Booking Enquiry</a></li>
                 <li><a href="Services.html">Services</a></li>
-                <li><a href="Contact.html" >Contact</a></li>
+                <li><a href="Contact.html" style="color: #d4af37;">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main Content Layout Section Wrap -->
-    <main class="Contact-layout">
+    <main class="contact-layout">
         
-        <!-- Left Side: Address Details and Leaflet Interactive Map -->
+        <!-- Left Side: Address Details and Map Container -->
         <div>
             <section style="background: rgba(255, 255, 255, 0.9); padding: 25px; border-radius: 8px; margin-bottom: 20px;">
                 <h2 style="margin-top: 0; color: #1a1a1a;">Call and book now</h2>
@@ -146,26 +149,27 @@
             <div id="map"></div>
         </div>
 
-        <!-- Right Side: Message Box Container (No form tag to block default auto-refresh) -->
+        <!-- Right Side: Standard-Compliant Form Wrapper -->
         <div>
-            <div class="message-form-container">
-                <h3 style="margin-top: 0; margin-bottom: 20px; text-transform: uppercase; font-size: 16px; color: #1a1a1a;">Send us a message</h3>
+            <!-- Form ID matches submit controller logic precisely -->
+            <form id="contactForm" novalidate class="message-form-card">
+                <h3 style="margin-top: 0; margin-bottom: 20px; text-transform: uppercase; font-size: 15px; color: #1a1a1a; letter-spacing: 0.5px;">Send us a message</h3>
                 
                 <div class="form-group">
                     <label for="contactName">Full Name</label>
-                    <input type="text" id="contactName" class="form-input">
+                    <input type="text" id="contactName" class="form-input" required>
                     <span id="nameError" style="color: red; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please enter your name.</span>
                 </div>
 
                 <div class="form-group">
                     <label for="contactEmail">Email Address</label>
-                    <input type="email" id="contactEmail" class="form-input">
+                    <input type="email" id="contactEmail" class="form-input" required>
                     <span id="emailError" style="color: red; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please enter a valid email.</span>
                 </div>
 
                 <div class="form-group">
                     <label for="messageType">Inquiry Type</label>
-                    <select id="messageType" class="form-input" style="height: 40px;">
+                    <select id="messageType" class="form-input" style="height: 40px;" required>
                         <option value="">-- Choose Option --</option>
                         <option value="general">General Inquiry</option>
                         <option value="feedback">Feedback / Review</option>
@@ -175,12 +179,12 @@
 
                 <div class="form-group">
                     <label for="contactMessage">Your Message</label>
-                    <textarea id="contactMessage" rows="4" class="form-input"></textarea>
+                    <textarea id="contactMessage" rows="4" class="form-input" required></textarea>
                     <span id="messageError" style="color: red; font-size: 13px; display: none; margin-top: 5px;">⚠️ Message block cannot be blank.</span>
                 </div>
 
-                <button type="button" class="submit-btn" onclick="executeVerification()">Send Message</button>
-            </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
 
             <!-- Success Message Notification Container Alert Area Box -->
             <div id="contactResponse" style="margin-top: 20px; padding: 15px; border-radius: 6px; display: none; font-size: 14px; text-align: center; font-weight: bold;"></div>
@@ -193,12 +197,12 @@
         <p>&copy; 2026 Bradley Saloon Services</p>
     </footer>
 
-        <!-- Leaflet Engine Source Scripts Link Injection -->
-    <script src="https://unpkg.com" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Leaflet Engine Source Scripts Link Injection -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <!-- Client Mechanics Logic Engine Controller -->
     <script>
-        // 1. Explicitly point Leaflet to stable online icon image resources
+        // 1. Force Leaflet to find markers online to bypass broken local paths
         delete L.Icon.Default.prototype._getIconUrl;
         L.Icon.Default.mergeOptions({
             iconRetinaUrl: 'https://cloudflare.com',
@@ -206,8 +210,8 @@
             shadowUrl: 'https://cloudflare.com'
         });
 
-        // 2. Initialize the live map canvas centered on Pretoria coordinates
-        var map = L.map('map').setView([-25.747, 28.229], 14);
+        // 2. Initialize map grid over Pretoria coordinates
+        var map = L.map('map').setView([-25.747, 28.229], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
@@ -217,19 +221,22 @@
             .bindPopup('<strong>Bradley\'s Saloon</strong><br />123 Main Street, Pretoria')
             .openPopup();
 
-        // 3. THE FIX: Force the map engine to recalculate container space after a 200ms delay
+        // 3. Force rendering dimensions to update immediately 
         setTimeout(function() {
             map.invalidateSize();
-        }, 200);
+        }, 300);
 
-        // 4. Form submission asynchronous validation checks
+        // 4. Custom Submit Event Interception Validation Engine
         document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // STOP browser submission and full-page window refresh completely
             event.preventDefault();
 
             var isValid = true;
             var resBox = document.getElementById('contactResponse');
+            
             resBox.style.display = 'none';
 
+            // Clear errors
             document.getElementById('nameError').style.display = 'none';
             document.getElementById('emailError').style.display = 'none';
             document.getElementById('typeError').style.display = 'none';
@@ -241,36 +248,31 @@
             var messageVal = document.getElementById('contactMessage').value.trim();
 
             if (nameVal === '') {
-                document.getElementById('nameError').style.display = 'block';
-                isValid = false;
-            }
-            
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (emailVal === '' || !emailRegex.test(emailVal)) {
-                document.getElementById('emailError').style.display = 'block';
-                isValid = false;
-            }
-            
-            if (typeVal === '') {
-                document.getElementById('typeError').style.display = 'block';
-                isValid = false;
-            }
-            
-            if (messageVal === '') {
-                document.getElementById('messageError').style.display = 'block';
-                isValid = false;
-            }
-
-            if (isValid === true) {
-                resBox.style.backgroundColor = '#d4edda';
-                resBox.style.color = '#155724';
-                resBox.style.border = '1px solid #c3e6cb';
-                resBox.style.borderLeft = '5px solid #155724';
-                
-                resBox.innerHTML = '<strong>Success!</strong> Your message has been sent. Thank you, ' + nameVal + '.';
-                resBox.style.display = 'block';
-                
-                document.getElementById('contactForm').reset();
-            }
-        });
-    </script>
+document.getElementById('nameError').style.display = 'block';
+isValid = false;
+}
+var emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+if (emailVal === '' || !emailRegex.test(emailVal)) {
+document.getElementById('emailError').style.display = 'block';
+isValid = false;
+}
+if (typeVal === '') {
+document.getElementById('typeError').style.display = 'block';
+isValid = false;
+}
+if (messageVal === '') {
+document.getElementById('messageError').style.display = 'block';
+isValid = false;
+}
+// Print output text box alert
+if (isValid === true) {
+resBox.style.backgroundColor = '#d4edda';
+resBox.style.color = '#155724';
+resBox.style.border = '1px solid #c3e6cb';
+resBox.style.borderLeft = '5px solid #155724';
+resBox.innerHTML = 'Success! Your message has been sent. Thank you, ' + nameVal + '.';
+resBox.style.display = 'block';
+// Reset form fields safely
+document.getElementById('contactForm').reset();
+}
+});
