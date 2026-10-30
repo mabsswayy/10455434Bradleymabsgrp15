@@ -3,57 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grooming & Styling Services and Bradley's Saloon</title>
+    <title>Grooming &amp; Styling Services and Bradley's Saloon</title>
     <meta name="description" content="Explore our extensive menu of salon services including modern fades, traditional shaves, beard grooming, and hair styling.">
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Custom styling structure to cleanly support search bars and flexible lists -->
+    <style>
+        .search-wrapper {
+            text-align: center;
+            margin: 30px auto;
+            max-width: 500px;
+            padding: 0 15px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #fff;
+            border-radius: 25px;
+            outline: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .service-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .service-list li:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        /* Style for Lightbox Popup layer */
+        #galleryLightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+        }
+        #galleryLightbox img {
+            max-width: 85%;
+            max-height: 80%;
+            border: 3px solid #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+    </style>
 </head>
-<body style="background-color: peru;"></body>
-<body>
+<body style="background-color: peru; font-family: sans-serif; margin: 0; padding: 0;">
 
     <!-- Header & Complete Navigation Menu -->
-    <header>
-        <h1>Our Services</h1>
+    <header style="background-color: #1a1a1a; padding: 20px; text-align: center; color: white;">
+        <h1 style="margin-bottom: 15px;">Our Services</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About.html">About Us</a></li>
-                <li><a href="enquiry.html">Booking Enquiry</a></li>
-
-                <li><a href="Services.html">Services</a></li>
-                <li><a href="Contact.html">Contact</a></li>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; justify-content: center;">
+                <li><a href="index.html" style="color: white; text-decoration: none; font-weight: bold;">Home</a></li>
+                <li><a href="About.html" style="color: white; text-decoration: none; font-weight: bold;">About Us</a></li>
+                <li><a href="enquiry.html" style="color: white; text-decoration: none; font-weight: bold;">Booking Enquiry</a></li>
+                <li><a href="Services.html" style="color: #d4af37; text-decoration: none; font-weight: bold;">Services</a></li>
+                <li><a href="Contact.html" style="color: white; text-decoration: none; font-weight: bold;">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content detailing pricing list -->
-    <!-- Main Content detailing pricing list structured with Flex/Grid layouts -->
-<main>
-    <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <!-- Women's Service Category Section -->
-        <section>
-            <h2>Women</h2>
-            <ul>
-                <li><span>Washing hair</span> <span>R50</span></li>
-                <li><span>Braids</span> <span>R300</span></li>
-                <li><span>Butterfly locks</span> <span>R300</span></li>
-                <li><span>Cornrows</span> <span>R200</span></li>
-                <li><span>Dreadlocks</span> <span>R120</span></li>
-            </ul>
-        </section>
-
-        <!-- Men's Service Category Section -->
-        <section>
-            <h2>Men</h2>
-            <ul>
-                <li><span>Washing hair</span> <span>R40</span></li>
-                <li><span>Cut</span> <span>R60</span></li>
-                <li><span>Fade</span> <span>R50</span></li>
-                <li><span>Chiskop</span> <span>R49</span></li>
-                <li><span>Taper fade</span> <span>R70</span></li>
-                <li><span>Cut and dye</span> <span>R100</span></li>
-                <li><span>Bleach</span> <span>R30</span></li>
-                <li><span>Trim</span> <span>R10</span></li>
-            </ul>
-        </section>
+    <!-- Requirement 2.2: Live Filter Search Box Component Container -->
+    <div class="search-wrapper">
+        <input type="text" id="salonSearchInput" class="search-input" placeholder="Type to filter treatments (e.g. Braids, Fade, Cut)...">
     </div>
-</main>
+
+    <!-- Main Content detailing pricing list structured with Flex/Grid layouts -->
+    <main style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+        <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; background: rgba(255,255,255,0.15); padding: 30px; border-radius: 8px; color: #1a1a1a;">
+            
+            <!-- Women's Service Category Section - Loaded dynamically via script -->
+            <section>
+                <h2 style="border-bottom: 2px solid #1a1a1a; padding-bottom: 10px; text-transform: uppercase;">Women</h2>
+                <ul id="womenServicesDisplay" class="service-list">
+                    <!-- JavaScript DOM elements will append right here -->
+                </ul>
+            </section>
+
+            <!-- Men's Service Category Section - Loaded dynamically via script -->
+            <section>
+                <h2 style="border-bottom: 2px solid #1a1a1a; padding-bottom: 10px; text-transform: uppercase;">Men</h2>
+                <ul id="menServicesDisplay" class="service-list">
+                    <!-- JavaScript DOM elements will append right here -->
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Requirement 2.1: Portfolio Lightbox View Overlay Component Modal -->
+    <div id="galleryLightbox" onclick="this.style.display='none'">
+        <img id="lightboxFrameImg" src="" alt="Hairstyle Portfolio View">
+    </div>
+
+    <!-- Footer Section -->
+    <footer style="background-color: #1a1a1a; color: white; text-align: center; padding: 15px; margin-top: 40px;">
+        <p>&copy; 2026 Bradley Saloon Services</p>
+    </footer>
+
+    <!-- Interactive Interactive Features Controller Script -->
+    <script>
+        // 1. DATA STRUCTURES: Stores all your authentic menu items inside an array object layout
+        var salonMenuData = [
+            // Women's Treatment Category Elements
+            { name: "Washing hair", price: "R50", gender: "women", image: "queens.webp" },
+            { name: "Braids", price: "R300", gender: "women", image: "braids.webp" },
+            { name: "Butterfly locks", price: "R300", gender: "women", image: "butterflylocs.webp" },
+            { name: "Cornrows", price: "R200", gender: "women", image: "" },
+            { name: "Dreadlocks", price: "R120", gender: "women", image: "dreads.webp" },
+
+            // Men's Treatment Category Elements
+            { name: "Washing hair", price: "R40", gender: "men", image: "" },
+            { name: "Cut", price: "R60", gender: "men", image: "fade.webp" },
+            { name: "Fade", price: "R50", gender: "men", image: "fade.webp" },
+            { name: "Chiskop", price: "R49", gender: "men", image: "chiskop.webp" },
+            { name: "Taper fade", price: "R70", gender: "men", image: "taper.webp" },
+            { name: "Cut and dye", price: "R100", gender: "men", image: "" },
+            { name: "Bleach", price: "R30", gender: "men", image: "bleach.webp" },
+            { name: "Trim", price: "R10", gender: "men", image: "fade.webp" }
+        ];
+
+        // Grab target DOM location elements
+        var womenContainer = document.getElementById('womenServicesDisplay');
+        var menContainer = document.getElementById('menServicesDisplay');
+
+        // 2. DYNAMIC CONTENT GENERATOR: Parses data lists and injects HTML text objects via advanced DOM manipulation
+        function renderSalonDisplayGrid(itemsList) {
+            // Clean out target blocks before drawing items
+            womenContainer.innerHTML = "";
+            menContainer.innerHTML = "";
+
+            itemsList.forEach(function(item) {
+                var listItem = document.createElement('li');
+                
+                listItem.innerHTML = "<span>" + item.name + "</span> <span>" + item.price + "</span>";
+                
+                // Add click behavior to item row to fulfill the Lightbox portfolio requirement
+                listItem.onclick = function() {
+                    openPopupViewer(item.image);
+                };
+
+                // Append item container to its proper list grid section based on gender classification
+                if (item.gender === "women") {
+                    womenContainer.appendChild(listItem);
+                } else if (item.gender === "men") {
+                    menContainer.appendChild(listItem);
+                }
+            });
+        }
+
+        // Initialize execution setup on viewport file start load event
+        renderSalonDisplayGrid(salonMenuData);
+
+        // 3. SEARCH FILTER ENGINE: Captures keystrokes and runs asynchronous keyword screening loops
+        document.getElementById('salonSearchInput').addEventListener('input', function(event) {
+            var searchStr = event.target.value.toLowerCase().trim();
+
+            var filteredResults = salonMenuData.filter(function(treatment) {
+                return treatment.name.toLowerCase().includes(searchStr);
+            });
+
+            // Re-render layout grids with filtered matching arrays dynamically
+            renderSalonDisplayGrid(filteredResults);
+        });
+
+        // 4. LIGHTBOX PORTFOLIO POPUP ENGINE
+        function openPopupViewer(imgUrl) {
+            var lightboxOverlay = document.getElementById('galleryLightbox');
+            var lightboxImgElement = document.getElementById('lightboxFrameImg');
+            
+            lightboxImgElement.src = imgUrl;
+            lightboxOverlay.style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

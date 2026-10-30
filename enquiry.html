@@ -181,10 +181,10 @@
                     <label for="salonService">Select Grooming Treatment</label>
                     <select id="salonService" required class="form-input" style="height: 45px;">
                         <option value="">-- Choose from Menu --</option>
-                        <option value="haircut" data-price="30">Standard Scissor Haircut (£30)</option>
-                        <option value="fade" data-price="35">Premium Skin Fade &amp; Trim (£35)</option>
-                        <option value="shave" data-price="20">Hot Towel Precision Shave (£20)</option>
-                        <option value="combo" data-price="50">The Full Works: Cut &amp; Beard Styling (£50)</option>
+                        <option value="chiskop" data-price="30">chiskop (R30)</option>
+                        <option value="fade" data-price="35">fade&amp; Trim (R35)</option>
+                        <option value="braids" data-price="20">braids(R20)</option>
+                        <option value="butterfly locks" data-price="50">butterfly locks &amp;  (R50)</option>
                     </select>
                     <span id="serviceError" style="color: #d93025; font-size: 13px; display: none; margin-top: 5px;">⚠️ Please select a service.</span>
                 </div>
@@ -259,11 +259,11 @@ isValid = false;
             responseBox.style.border = '1px solid #c2e7d9';
             responseBox.style.borderLeft = '5px solid #137333';
             
-            // Changed <br> to self-closing <br /> to satisfy the editor's check
-            responseBox.innerHTML = `✨ <strong>Inquiry Logged Successfully!</strong> ✨<br /><br />Hello ${name}, your estimate for <strong>${serviceName}</strong> on <strong>${bookingDate}</strong> comes out to a total of <strong>£${cost}</strong>.<br />Our team will message you at <strong>${email}</strong> shortly to lock down your chair time!`;
+           
+            responseBox.innerHTML = `<strong>Inquiry Logged Successfully!</strong> <br /><br />Hello ${name}, your estimate for <strong>${serviceName}</strong> on <strong>${bookingDate}</strong> comes out to a total of <strong>£${cost}</strong>.<br />Our team will message you at <strong>${email}</strong> shortly to lock down your chair time!`;
             responseBox.style.display = 'block';
 
                         document.getElementById('bookingForm').reset();
         }
-    }); // <-- Make sure line 267 has this exact brace and parenthesis matching
+    }); 
 </script>
