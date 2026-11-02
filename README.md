@@ -31,7 +31,22 @@ Edit Date | Targeted Component / File | Description of Modification Applied | Re
 | Oct 31, 2026 | Document Headers (All HTML Viewports) | Injected missing on-page SEO components, adding structural titles and unique meta descriptions inside header codeblocks  | SEO Compliant|
 | Nov 01, 2026 | `Contact.html` Main Layout Frame | Fixed an unclosed paragraph element flag inside reachable method listings (`Whatsapp`) to avoid DOM tree structure validation warnings. | HTML5 Validated |
 | Nov 01, 2026 | `Contact.html` & `enquiry.html` Forms | Replaced standard input nodes with custom validation structures, error blocks, and safe asynchronous alert processing handlers . | UX Reload Halts Fixed |
-| Nov 02, 2026 | `Contact.html` Mapping Section | Applied explicit `map.invalidateSize()` dimension calculations to the map frame to fix blank canvas layout rendering anomalies on secure network nodes . | Live Map Clear|
+
+REFERENCING
+ARV Design (n.d.) *Unisex Salon Interior Design Services*. Available at: https://www.indiamart.com/proddetail/unisex-salon-interior-design-services-2855114927097.html [Accessed 14 August 2026].
+
+Inspired Pencil (2023) *Salon Hairstyles Portfolio Examples*. Available at: https://ar.inspiredpencil.com/pictures-2023/salon-hairstyles [Accessed 14 August 2026].
+
+LogoAi (n.d.) *AI Logo Maker and Brand Automation Tool*. Available at: https://logoai.com [Accessed 14 August 2026].
+
+National Hair & Beauty Council of South Africa (NHBCSA) (n.d.) *Salon Industry Standards*. Available at: https://www.nhbcsouthafrica.org.za/ [Accessed 14 August 2026].
+
+Pretoria Salon Benchmarking Group (2026) *Local Competitor Analysis Matrix: Hair and Grooming Benchmarks in Pretoria Storefronts*. Pretoria: Industry Competitor Benchmarking Report. [Accessed 14 August 2026].
+
+Walmart Stores, Inc. (n.d.) *6 PCS Black Men's Hairstyles Wall Art Posters Prints: Barber Shop Canvas Painting*. Available at: https://www.walmart.com/ip/6-PCS-Black-Men-s-Hairstyles-Wall-Art-Posters-Prints-Barber-Shop-Wall-Decor-Signboard-Haircut-Shave-Salon-Hairdressing-Canvas-Print-Art-Painting/14113313735 [Accessed 14 August 2026].
+
+
+
 
 
 
