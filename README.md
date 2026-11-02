@@ -1,3 +1,9 @@
+1. Advanced Interactive Features 
+Dynamic content loading: Extracted static HTML menu nodes into a dynamic JavaScript matrix array, reading strings to inject salon elements.
+live search and content filtering: Configured an interactive string listener box that dynamically screens card listings by characters in real time without refreshing the viewport layout 
+Hairstyle portfolio lightbox: Engineered an interactive popup window modal layer that expands thumbnail gallery targets into centered window focus views when clicked 
+
+
 The other screenshots are in the Responsive evidence file.
 DESKTOP :
 <img src="Responsive evidence/Desktop/Screenshot 2026-10-07 110225.png" width="200">
