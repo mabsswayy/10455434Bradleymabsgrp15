@@ -13,7 +13,14 @@ AJAX execution framework Injected `event.preventDefault()` interception hooks on
  3. Search Engine Optimization (SEO) Roadmap
 On-Page Structural Metadata: Injected unique, explicit `<title>` strings and highly descriptive summary fields via `<meta name="description">` blocks across every template page .
 Image Index Optimisation: Applied comprehensive, descriptive filename parameters and accurate keyword contexts to all structural images via `alt="..."` attributes .
-Technical Spiders Directories:** Injected structural indexing rules directly into the root repository folder by creating a custom `robots.txt` directory guide and an XML-mapped site index via `sitemap.xml` .
+Technical Spiders Directories:Injected structural indexing rules directly into the root repository folder by creating a custom `robots.txt` directory guide and an XML-mapped site index via `sitemap.xml` .
+Edit Date | Targeted Component / File | Description of Modification Applied | Remediated Status |
+
+| Oct 30, 2026 | Navigation Bars all HTML Viewports | Aligned filename case configuration attributes across menu loops to enforce consistent matching parameters for `Services.html` . | Fixed 404 Exceptions |
+| Oct 31, 2026 | Document Headers (All HTML Viewports) | Injected missing on-page SEO components, adding structural titles and unique meta descriptions inside header codeblocks  | SEO Compliant|
+| Nov 01, 2026 | `Contact.html` Main Layout Frame | Fixed an unclosed paragraph element flag inside reachable method listings (`Whatsapp`) to avoid DOM tree structure validation warnings. | HTML5 Validated |
+| Nov 01, 2026 | `Contact.html` & `enquiry.html` Forms | Replaced standard input nodes with custom validation structures, error blocks, and safe asynchronous alert processing handlers . | UX Reload Halts Fixed |
+| Nov 02, 2026 | `Contact.html` Mapping Section | Applied explicit `map.invalidateSize()` dimension calculations to the map frame to fix blank canvas layout rendering anomalies on secure network nodes . | Live Map Clear|
 
 
 The other screenshots are in the Responsive evidence file.
