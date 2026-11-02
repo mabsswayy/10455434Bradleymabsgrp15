@@ -2,13 +2,24 @@
 Dynamic content loading: Extracted static HTML menu nodes into a dynamic JavaScript matrix array, reading strings to inject salon elements.
 live search and content filtering: Configured an interactive string listener box that dynamically screens card listings by characters in real time without refreshing the viewport layout <img width="1912" height="1078" alt="filtering" src="https://github.com/user-attachments/assets/fcf2164a-3c7d-419a-b499-d7193ff77930" />
 Hairstyle portfolio lightbox: Engineered an interactive popup window modal layer that expands thumbnail gallery targets into centered window focus views when clicked
+<img width="1917" height="1078" alt="taper" src="https://github.com/user-attachments/assets/ba1c9444-ffae-4f70-be78-e6396869c18e" />
+<img width="1917" height="1022" alt="taperpopup" src="https://github.com/user-attachments/assets/b429321d-e3bd-46fa-8958-2b9f5ab46fd2" />
+<img width="1917" height="1060" alt="Screenshot 2026-11-02 134459" src="https://github.com/user-attachments/assets/13815380-0d97-41e1-a0ff-34d0b6c0918d" />
+<img width="1331" height="1050" alt="popup picture" src="https://github.com/user-attachments/assets/535d235f-73ab-4952-8cdf-4082e0d7bc55" />
+
+<img width="1917" height="1073" alt="services" src="https://github.com/user-attachments/assets/3cd90162-7dbb-45cf-89e4-b5cd2d82fb90" />
+<img width="1917" height="1072" alt="enquiry" src="https://github.com/user-attachments/assets/5a3f3e9b-cbaf-4963-afe4-879678192eeb" />
 
 Form Functionality and Client Side Verification
 Operational viewports: Segregated user activities across two unique view-paths (`enquiry.html` and `Contact.html`) 
  Enquiry html: Allows users to calculate treatment package costs dynamically using custom option properties.
+ 
+<img width="1917" height="1072" alt="enquiry" src="https://github.com/user-attachments/assets/5a3f3e9b-cbaf-4963-afe4-879678192eeb" />
+
   Contact.html* Collects client inquiries and handles validated mail content arrays cleanly 
 Short hand error managment: Created clear, customized inline alert text layers (`display: block`) that trigger dynamically if validation parameters fail .
-AJAX execution framework Injected `event.preventDefault()` interception hooks onto form capture triggers to smoothly load success message blocks without refreshing the window grid.
+AJAX execution framework Injected `event.preventDefault()` interception hooks onto form capture triggers to smoothly load success message blocks without refreshing the window grid.<img width="1900" height="1078" alt="feedback and pinpoint" src="https://github.com/user-attachments/assets/9ab84ead-3ad7-407b-a258-ff334f7e7826" />
+
 
  3. Search Engine Optimization (SEO) Roadmap
 On-Page Structural Metadata: Injected unique, explicit `<title>` strings and highly descriptive summary fields via `<meta name="description">` blocks across every template page .
