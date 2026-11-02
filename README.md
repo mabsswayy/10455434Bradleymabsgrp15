@@ -10,6 +10,11 @@ Operational viewports: Segregated user activities across two unique view-paths (
 Short hand error managment: Created clear, customized inline alert text layers (`display: block`) that trigger dynamically if validation parameters fail .
 AJAX execution framework Injected `event.preventDefault()` interception hooks onto form capture triggers to smoothly load success message blocks without refreshing the window grid.
 
+ 3. Search Engine Optimization (SEO) Roadmap
+On-Page Structural Metadata: Injected unique, explicit `<title>` strings and highly descriptive summary fields via `<meta name="description">` blocks across every template page .
+Image Index Optimisation: Applied comprehensive, descriptive filename parameters and accurate keyword contexts to all structural images via `alt="..."` attributes .
+Technical Spiders Directories:** Injected structural indexing rules directly into the root repository folder by creating a custom `robots.txt` directory guide and an XML-mapped site index via `sitemap.xml` .
+
 
 The other screenshots are in the Responsive evidence file.
 DESKTOP :
