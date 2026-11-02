@@ -1,6 +1,6 @@
-1. Advanced Interactive Features 
+ 1. Advanced Interactive Features 
 Dynamic content loading: Extracted static HTML menu nodes into a dynamic JavaScript matrix array, reading strings to inject salon elements.
-live search and content filtering: Configured an interactive string listener box that dynamically screens card listings by characters in real time without refreshing the viewport layout 
+live search and content filtering: Configured an interactive string listener box that dynamically screens card listings by characters in real time without refreshing the viewport layout <img width="1912" height="1078" alt="filtering" src="https://github.com/user-attachments/assets/fcf2164a-3c7d-419a-b499-d7193ff77930" />
 Hairstyle portfolio lightbox: Engineered an interactive popup window modal layer that expands thumbnail gallery targets into centered window focus views when clicked
 
 Form Functionality and Client Side Verification
@@ -21,6 +21,7 @@ Edit Date | Targeted Component / File | Description of Modification Applied | Re
 | Nov 01, 2026 | `Contact.html` Main Layout Frame | Fixed an unclosed paragraph element flag inside reachable method listings (`Whatsapp`) to avoid DOM tree structure validation warnings. | HTML5 Validated |
 | Nov 01, 2026 | `Contact.html` & `enquiry.html` Forms | Replaced standard input nodes with custom validation structures, error blocks, and safe asynchronous alert processing handlers . | UX Reload Halts Fixed |
 | Nov 02, 2026 | `Contact.html` Mapping Section | Applied explicit `map.invalidateSize()` dimension calculations to the map frame to fix blank canvas layout rendering anomalies on secure network nodes . | Live Map Clear|
+
 
 
 The other screenshots are in the Responsive evidence file.
