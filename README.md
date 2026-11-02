@@ -1,7 +1,14 @@
 1. Advanced Interactive Features 
 Dynamic content loading: Extracted static HTML menu nodes into a dynamic JavaScript matrix array, reading strings to inject salon elements.
 live search and content filtering: Configured an interactive string listener box that dynamically screens card listings by characters in real time without refreshing the viewport layout 
-Hairstyle portfolio lightbox: Engineered an interactive popup window modal layer that expands thumbnail gallery targets into centered window focus views when clicked 
+Hairstyle portfolio lightbox: Engineered an interactive popup window modal layer that expands thumbnail gallery targets into centered window focus views when clicked
+
+Form Functionality and Client Side Verification
+Operational viewports: Segregated user activities across two unique view-paths (`enquiry.html` and `Contact.html`) 
+ Enquiry html: Allows users to calculate treatment package costs dynamically using custom option properties.
+  Contact.html* Collects client inquiries and handles validated mail content arrays cleanly 
+Short hand error managment: Created clear, customized inline alert text layers (`display: block`) that trigger dynamically if validation parameters fail .
+AJAX execution framework Injected `event.preventDefault()` interception hooks onto form capture triggers to smoothly load success message blocks without refreshing the window grid.
 
 
 The other screenshots are in the Responsive evidence file.
